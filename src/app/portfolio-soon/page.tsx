@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
     }
 }
 
-const FACEBOOK_URL = "https://facebook.com/REPLACE_ME"
-const INSTAGRAM_URL = "https://instagram.com/REPLACE_ME"
+const FACEBOOK_URL = "https://m.facebook.com/100043146381365/"
+const INSTAGRAM_URL = "https://www.instagram.com/quick_fix_handyman?igsh=Mmc2cTN3OHlqanBj"
 
 export default async function PortfolioSoonPage() {
     const dict = await getDictionary()
