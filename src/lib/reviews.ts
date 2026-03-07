@@ -1,5 +1,3 @@
-import { unstable_cache } from 'next/cache';
-
 export interface UnifiedReview {
     id: string;
     source: 'google' | 'yelp';
@@ -10,11 +8,6 @@ export interface UnifiedReview {
     avatarUrl?: string;
     verificationUrl: string;
 }
-
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID;
-const YELP_API_KEY = process.env.YELP_API_KEY;
-const YELP_BUSINESS_ID = process.env.YELP_BUSINESS_ID;
 
 // Mock Data Fallback in case keys are missing (Dev Mode)
 const MOCK_REVIEWS: UnifiedReview[] = [
@@ -83,142 +76,11 @@ const MOCK_REVIEWS: UnifiedReview[] = [
     }
 ];
 
-interface GoogleReview {
-    time: number;
-    author_name: string;
-    rating: number;
-    text: string;
-    profile_photo_url: string;
-    author_url: string;
-}
-
-interface YelpReview {
-    id: string;
-    user: {
-        name: string;
-        image_url: string;
-    };
-    rating: number;
-    text: string;
-    time_created: string;
-    url: string;
-}
-
-async function fetchGoogleReviews(): Promise<UnifiedReview[]> {
-    if (!GOOGLE_API_KEY || !GOOGLE_PLACE_ID) return [];
-
-    try {
-        const response = await fetch(
-            `https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=reviews&key=${GOOGLE_API_KEY}`
-        );
-        if (!response.ok) {
-            throw new Error(`Google API error: ${response.status} ${response.statusText}`);
-        }
-        const text = await response.text();
-        if (!text) return [];
-        const data = JSON.parse(text);
-
-        if (!data.result || !data.result.reviews) return [];
-
-        return data.result.reviews.map((review: GoogleReview) => ({
-            id: review.time ? String(review.time) : Math.random().toString(),
-            source: 'google',
-            author: review.author_name,
-            rating: review.rating,
-            text: review.text,
-            date: new Date(review.time * 1000).toISOString(),
-            avatarUrl: review.profile_photo_url,
-            verificationUrl: review.author_url || '#'
-        }));
-    } catch (error) {
-        console.warn("Error fetching Google reviews:", error);
-        return [];
-    }
-}
-
-async function fetchYelpReviews(): Promise<UnifiedReview[]> {
-    if (!YELP_API_KEY || !YELP_BUSINESS_ID) return [];
-
-    try {
-        const response = await fetch(
-            `https://api.yelp.com/v3/businesses/${YELP_BUSINESS_ID}/reviews`,
-            {
-                headers: {
-                    Authorization: `Bearer ${YELP_API_KEY}`,
-                    accept: 'application/json',
-                }
-            }
-        );
-        if (!response.ok) {
-            console.warn(`Yelp API error: ${response.status} ${response.statusText}`);
-            return [];
-        }
-        const text = await response.text();
-        if (!text) return [];
-        const data = JSON.parse(text);
-
-        if (!data.reviews) return [];
-
-        return data.reviews.map((review: YelpReview) => ({
-            id: review.id,
-            source: 'yelp',
-            author: review.user.name,
-            rating: review.rating,
-            text: review.text,
-            date: review.time_created,
-            avatarUrl: review.user.image_url,
-            verificationUrl: review.url
-        }));
-    } catch (error) {
-        console.warn("Error fetching Yelp reviews:", error);
-        return [];
-    }
-}
-
-const CACHE_VERSION = 'v1'; // Bump this to invalidate cache in production
-
-// Separate the core logic for easy testing & bypass
 export async function computeReviews(): Promise<UnifiedReview[]> {
-    // 0. Force Mock Mode (Optional Env)
-    if (process.env.FORCE_MOCK_REVIEWS) {
-        return MOCK_REVIEWS;
-    }
-
-    // 1. If keys missing, fallback to mocks
-    if (!process.env.GOOGLE_API_KEY && !process.env.YELP_API_KEY) {
-        console.warn("Review API Keys missing. Using mock data.");
-        return MOCK_REVIEWS;
-    }
-
-    // 2. Fetch Real Data
-    const [googleReviews, yelpReviews] = await Promise.all([
-        fetchGoogleReviews(),
-        fetchYelpReviews()
-    ]);
-
-    const allReviews = [...googleReviews, ...yelpReviews]
-        .filter(r => r.rating === 5) // STRICT FILTER: 5 Stars only
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Newest first
-
-    // 3. Fallback if API returns empty
-    return allReviews.length > 0 ? allReviews : MOCK_REVIEWS;
+    return MOCK_REVIEWS;
 }
-
-// Production Cache Wrapper
-const getCachedReviews = unstable_cache(
-    async () => computeReviews(),
-    [`reviews-cache-${CACHE_VERSION}`],
-    { revalidate: 3600 } // 1 Hour
-);
 
 // Main Export: Decides whether to use Cache or Live
 export async function getReviews(): Promise<UnifiedReview[]> {
-    // In Development OR if we forced mocks, bypass cache completely
-    // This allows instant updates to MOCK_REVIEWS without restarting
-    if (process.env.NODE_ENV !== 'production' || process.env.FORCE_MOCK_REVIEWS) {
-        return computeReviews();
-    }
-
-    // In Production, use the Next.js Cache
-    return getCachedReviews();
+    return computeReviews();
 }

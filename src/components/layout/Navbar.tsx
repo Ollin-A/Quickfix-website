@@ -97,6 +97,7 @@ export function Navbar({ dict, locale }: NavbarProps) {
             <div className="container h-full mx-auto px-4 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="https://i.imgur.com/pElZHcW.png"
                         alt="Quick Fix Handyman Logo"
@@ -203,8 +204,7 @@ export function Navbar({ dict, locale }: NavbarProps) {
                         className={cn("", isTransparent ? "text-white hover:bg-white/10" : "text-slate-900 hover:bg-slate-100")}
                         aria-label={locale === 'en' ? 'Cambiar a Español' : 'Switch to English'}
                     >
-                        <Globe className="h-4 w-4" />
-                        <span className="text-xs font-bold absolute bottom-1 right-1">{locale === "en" ? "ES" : "EN"}</span>
+                        <span className="text-sm font-bold">{locale === "en" ? "ES" : "EN"}</span>
                     </Button>
                     
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

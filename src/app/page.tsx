@@ -10,12 +10,7 @@ import { FinalCTA } from "@/components/home/FinalCTA"
 import { getReviews } from "@/lib/reviews"
 import { getDictionary } from "@/lib/i18n/dictionaries"
 
-// Metadata is generated in layout.tsx globally, but page.tsx can override.
-// We'll leave it as is or remove it since layout.tsx handles it dynamically.
-// Actually, if we want dynamic SEO here, we should export generateMetadata.
 export async function generateMetadata(): Promise<Metadata> {
-  // Relying on layout.tsx for now to avoid duplicate SEO tags,
-  // but if needed we can fetch dictionary here.
   return {}
 }
 

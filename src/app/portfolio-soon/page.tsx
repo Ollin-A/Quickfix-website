@@ -21,8 +21,20 @@ export default async function PortfolioSoonPage() {
     const pt = dict.portfolioSoon
 
     return (
-        <main className="min-h-screen">
-            <PageHeader className="bg-slate-900 text-white py-24 md:py-32 relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
+        // 1. Convertimos el main en un contenedor flex y le damos el fondo oscuro
+        <main className="flex flex-col min-h-screen bg-slate-900">
+            
+            {/* 2. flex-1 hace que este contenedor empuje el footer hasta abajo */}
+            <PageHeader className="flex-1 relative overflow-hidden flex flex-col justify-center text-white py-24 md:py-32">
+                
+                {/* --- EFECTO VISUAL SUAVE (Orbes Ambientales) --- */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
+                    <div className="absolute top-[20%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-purple-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+                    <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+                </div>
+                {/* ----------------------------------------------- */}
+
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <div className="max-w-3xl mx-auto flex flex-col items-center">
                         <h1 className="text-5xl md:text-7xl font-heading font-extrabold leading-tight mb-6">
@@ -36,7 +48,7 @@ export default async function PortfolioSoonPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-2xl mt-4">
-                            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-6 shadow-xl hover:scale-105 transition-transform bg-blue-600 hover:bg-blue-700 text-white">
+                            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-6 shadow-xl hover:scale-105 transition-transform bg-blue-600 hover:bg-blue-700 text-white border-0">
                                 <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                     <Facebook className="h-5 w-5" />
                                     {pt.facebook}
@@ -50,7 +62,7 @@ export default async function PortfolioSoonPage() {
                                 </a>
                             </Button>
 
-                            <Button asChild size="lg" variant="default" className="w-full sm:w-auto text-lg px-8 py-6 shadow-xl hover:scale-105 transition-transform bg-primary text-white">
+                            <Button asChild size="lg" variant="default" className="w-full sm:w-auto text-lg px-8 py-6 shadow-xl hover:scale-105 transition-transform bg-action hover:bg-action-hover text-white border-0">
                                 <Link href="/contact">
                                     {pt.cta}
                                 </Link>

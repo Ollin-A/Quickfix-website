@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -15,7 +16,14 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
             <div className="absolute inset-0 z-0">
                 <div className="w-full h-full bg-slate-900/50 relative">
                     {/* Visual fallback for video */}
-                    <div className="absolute inset-0 bg-[url('https://i.imgur.com/j3ujZZY.jpeg')] bg-cover bg-center opacity-40 mix-blend-overlay" />
+                    <Image
+                        src="https://i.imgur.com/j3ujZZY.jpeg"
+                        alt="Hero background"
+                        fill
+                        priority={true}
+                        sizes="100vw"
+                        className="object-cover opacity-40 mix-blend-overlay"
+                    />
                     {/* Gradient Overlay for Text Pop */}
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/30 to-transparent z-10 pointer-events-none" />
                 </div>
@@ -23,24 +31,18 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
 
             {/* Content Overlay */}
             <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center gap-6 pt-16 pb-16">
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight lead-tight max-w-5xl"
+                <h1
+                    className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight lead-tight max-w-5xl"
                 >
                     {dict.headlineLine1} <br className="hidden md:block" />
                     <span className="text-white drop-shadow-lg">{dict.headlineLine2}</span>
-                </motion.h1>
+                </h1>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-slate-200 max-w-3xl font-body leading-relaxed"
+                <p
+                    className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200 fill-mode-both text-lg md:text-xl text-slate-200 max-w-3xl font-body leading-relaxed"
                 >
                     {dict.subheadline}
-                </motion.p>
+                </p>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

@@ -8,26 +8,6 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "cdn.sanity.io",
-            },
-            {
-                protocol: "https",
-                hostname: "utfs.io",
-            },
-            {
-                protocol: "https",
-                hostname: "lh3.googleusercontent.com", // Google User Avatars
-            },
-
-            // ✅ Yelp images (use wildcard correctly)
-            {
-                protocol: "https",
-                hostname: "*.yelpcdn.com",
-            },
-
-            // ✅ Imgur
-            {
-                protocol: "https",
                 hostname: "i.imgur.com",
             },
             {
