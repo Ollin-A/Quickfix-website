@@ -1,0 +1,265 @@
+﻿
+> quick_fix_handyman_website@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program File
+s\nodejs/node.exe" 
+"C:\Program Files\no
+dejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo  
+            : NotS  
+  pecified: (:Str   
+ ing) [], Remote    
+Exception
+    + FullyQualifie 
+   dErrorId : Nati  
+  veCommandError
+ 
+Failed to compile.
+
+./src/app/services/s
+pecialized/page.tsx
+4:38  Error: 
+'ArrowRight' is 
+defined but never 
+used.  @typescript-e
+slint/no-unused-vars
+
+./src/app/_studio_di
+sabled/[[...index]]/
+page.tsx
+7:5  Error: Use 
+"@ts-expect-error" 
+instead of 
+"@ts-ignore", as 
+"@ts-ignore" will 
+do nothing if the 
+following line is 
+error-free.  @typesc
+ript-eslint/ban-ts-c
+omment
+
+./src/components/fea
+tures/MaintenancePag
+eClient.tsx
+114:25  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+114:73  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+
+./src/components/hom
+e/Evolution.tsx
+31:84  Error: `'` 
+can be escaped with 
+`&apos;`, 
+`&lsquo;`, `&#39;`, 
+`&rsquo;`.  react/no
+-unescaped-entities
+36:47  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+36:57  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+
+./src/components/hom
+e/MaintenanceTeaser.
+tsx
+63:37  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+63:40  Error: `'` 
+can be escaped with 
+`&apos;`, 
+`&lsquo;`, `&#39;`, 
+`&rsquo;`.  react/no
+-unescaped-entities
+63:105  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+
+./src/components/hom
+e/ReviewCarousel.tsx
+58:53  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+58:67  Error: `"` 
+can be escaped with 
+`&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  react/no
+-unescaped-entities
+63:61  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+
+./src/components/hom
+e/ServiceBuckets.tsx
+4:10  Error: 
+'Button' is defined 
+but never used.  @ty
+pescript-eslint/no-u
+nused-vars
+51:37  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+
+./src/components/por
+tfolio/ProjectGrid.t
+sx
+119:29  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+
+./src/components/por
+tfolio/ProjectModal.
+tsx
+36:25  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+
+./src/components/sha
+red/ComparisonSlider
+.tsx
+65:17  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+81:17  Warning: 
+Using `<img>` could 
+result in slower 
+LCP and higher 
+bandwidth. Consider 
+using `<Image />` 
+from `next/image` 
+to automatically 
+optimize images. 
+This may incur 
+additional usage or 
+cost from your 
+provider. See: https
+://nextjs.org/docs/m
+essages/no-img-eleme
+nt  @next/next/no-im
+g-element
+
+./src/sanity/lib/ima
+ge.ts
+9:37  Error: 
+Unexpected any. 
+Specify a different 
+type.  @typescript-e
+slint/no-explicit-an
+y
+
+info  - Need to 
+disable some ESLint 
+rules? Learn more 
+here: https://nextjs
+.org/docs/basic-feat
+ures/eslint#disablin
+g-rules
