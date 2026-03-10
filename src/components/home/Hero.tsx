@@ -17,7 +17,7 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
                 <div className="w-full h-full bg-slate-900/50 relative">
                     {/* Visual fallback for video */}
                     <Image
-                        src="https://i.imgur.com/j3ujZZY.jpeg"
+                        src="https://i.imgur.com/GR8G0JN.jpeg"
                         alt="Hero background"
                         fill
                         priority={true}

@@ -108,7 +108,7 @@ export default async function AboutPage() {
                         {ab.cta.title}
                     </h2>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/portfolio">
+                        <Link href="/portfolio-soon">
                             <Button size="lg" variant="outline" className="text-lg px-10 py-8 border-white/25 text-white hover:bg-white hover:text-primary h-auto bg-white/5 backdrop-blur-sm transition-colors focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0">
                                 {ab.cta.button1}
                             </Button>

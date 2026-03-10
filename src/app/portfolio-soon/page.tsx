@@ -21,29 +21,22 @@ export default async function PortfolioSoonPage() {
     const pt = dict.portfolioSoon
 
     return (
-        // 1. Convertimos el main en un contenedor flex y le damos el fondo oscuro
-        <main className="flex flex-col min-h-screen bg-slate-900">
+        <main className="flex flex-col min-h-screen bg-white">
             
-            {/* 2. flex-1 hace que este contenedor empuje el footer hasta abajo */}
-            <PageHeader className="flex-1 relative overflow-hidden flex flex-col justify-center text-white py-24 md:py-32">
+            <PageHeader className="flex-1 relative overflow-hidden flex flex-col justify-center bg-white py-24 md:py-32">
                 
-                {/* --- EFECTO VISUAL SUAVE (Orbes Ambientales) --- */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
-                    <div className="absolute top-[20%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-purple-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
-                    <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 mix-blend-screen filter blur-[120px] animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
-                </div>
-                {/* ----------------------------------------------- */}
-
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <div className="max-w-3xl mx-auto flex flex-col items-center">
-                        <h1 className="text-5xl md:text-7xl font-heading font-extrabold leading-tight mb-6">
+                        
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight leading-tight max-w-5xl mb-6 text-primary">
                             {pt.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-slate-300 mb-2 max-w-2xl font-body">
+                        
+                        <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-body leading-relaxed mb-6">
                             {pt.subtitle1}
                         </p>
-                        <p className="text-slate-400 mb-10 text-lg">
+                        
+                        <p className="text-slate-500 mb-10 text-lg font-body">
                             {pt.subtitle2}
                         </p>
 

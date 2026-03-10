@@ -42,7 +42,6 @@ export function Navbar({ dict, locale }: NavbarProps) {
     const [isScrolled, setIsScrolled] = React.useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
-    // Determine visual state
     const isTransparent = !isScrolled
 
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -66,7 +65,7 @@ export function Navbar({ dict, locale }: NavbarProps) {
         { name: dict.about, href: "/about" },
         {
             name: dict.services,
-            href: "/services", // Only for reference, disabled as link
+            href: "/services",
             hasDropdown: true,
             subItems: [
                 { name: dict.remodeling, href: "/services/remodeling" },
@@ -95,9 +94,7 @@ export function Navbar({ dict, locale }: NavbarProps) {
             />
 
             <div className="container h-full mx-auto px-4 flex items-center justify-between">
-                {/* Logo */}
                 <Link href="/" className="flex items-center group">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="https://i.imgur.com/pElZHcW.png"
                         alt="Quick Fix Handyman Logo"
@@ -105,7 +102,6 @@ export function Navbar({ dict, locale }: NavbarProps) {
                     />
                 </Link>
 
-                {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <div key={link.name} className="relative group">
@@ -218,13 +214,13 @@ export function Navbar({ dict, locale }: NavbarProps) {
                             <SheetHeader>
                                 <SheetTitle className="text-left font-heading text-xl text-primary font-bold">Quick Fix Handyman</SheetTitle>
                             </SheetHeader>
-                            <div className="flex flex-col gap-6 mt-8 h-full overflow-y-auto pb-8">
+                            <div className="flex flex-col gap-6 mt-8 h-full overflow-y-auto pb-16">
                                 <nav className="flex flex-col gap-2">
                                     {navLinks.map((link) => (
                                         link.hasDropdown ? (
                                             <Accordion key={link.name} type="single" collapsible className="w-full border-none">
                                                 <AccordionItem value={link.name} className="border-none">
-                                                    <AccordionTrigger className="text-lg font-medium text-slate-800 hover:text-primary transition-colors py-3 hover:no-underline">
+                                                    <AccordionTrigger className="text-lg font-medium text-slate-800 hover:text-primary transition-colors py-3 hover:no-underline focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none [-webkit-tap-highlight-color:transparent]">
                                                         {link.name}
                                                     </AccordionTrigger>
                                                     <AccordionContent className="flex flex-col gap-2 pl-4 pb-2">
@@ -254,12 +250,14 @@ export function Navbar({ dict, locale }: NavbarProps) {
                                     ))}
                                 </nav>
                                 <div className="flex flex-col gap-4 mt-auto">
+                                    <Button asChild variant="outline" className="w-full gap-2 font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white flex items-center justify-center" size="lg">
+                                        <a href="tel:9712677905" onClick={() => setIsMobileMenuOpen(false)}>
+                                            <Phone className="h-4 w-4" />
+                                            {dict.callUs}
+                                        </a>
+                                    </Button>
                                     <Button asChild className="w-full font-bold shadow-md" size="lg">
                                         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>{dict.getEstimate}</Link>
-                                    </Button>
-                                    <Button variant="outline" className="w-full gap-2" size="lg">
-                                        <Phone className="h-4 w-4" />
-                                        {dict.callUs}
                                     </Button>
                                 </div>
                             </div>
