@@ -1,0 +1,16 @@
+name = "quickfix-website"
+pages_build_output_dir = ".next"
+type = "javascript"
+account_id = "b5717457dfde865f6e0b08b952586e90"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.preview]
+vars = { ENVIRONMENT = "preview" }
+
+# Environment variables for Next.js
+[vars]
+NEXT_PUBLIC_SUPABASE_URL = "https://yeiopsvhxyaccwhyynrs.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InllaW9wc3ZoeHlhY2N3aHl5bnJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUyOTM1MDIsImV4cCI6MjA4MDg2OTUwMn0.4Tu3DWBGhfaixgjyH6pVGziKUgPEvCFbRXKWg_5vWBM"
+NEXT_PUBLIC_GATEWAY_URL = "https://api.ollin.agency/"
