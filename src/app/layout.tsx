@@ -6,6 +6,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { getDictionary, getLocale } from "@/lib/i18n/dictionaries";
 
+// Required by @cloudflare/next-on-pages: every server-rendered route must run on the edge runtime.
+export const runtime = "edge";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
